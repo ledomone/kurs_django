@@ -17,14 +17,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-bqvx95kzvdx=0hi@g+=9(q_#14fu%*hgv9ec%o##v(dt#-8(i'
+SECRET_KEY = 'v@j41_+)^#g6l7qr0bm6a@&vcg361-iz(muj+gvlu4xedhow)d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] # '127.0.0.1'
 
 
 # Application definition
@@ -70,9 +70,9 @@ LANGUAGE_CODE = 'pl'
 
 TIME_ZONE = 'Europe/Warsaw'
 
-USE_I18N = True
+USE_I18N = True # internationalization
 
-USE_L10N = True
+USE_L10N = True # localization
 
 USE_TZ = True
 
