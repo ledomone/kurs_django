@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -24,7 +25,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = [] # '127.0.0.1'
+ALLOWED_HOSTS = []  # '127.0.0.1'
 
 
 # Application definition
@@ -71,9 +72,9 @@ LANGUAGE_CODE = 'pl'
 
 TIME_ZONE = 'Europe/Warsaw'
 
-USE_I18N = True # internationalization
+USE_I18N = True  # internationalization
 
-USE_L10N = True # localization
+USE_L10N = True  # localization
 
 USE_TZ = True
 
@@ -85,5 +86,5 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = {
     os.path.join(BASE_DIR, 'templates'),
-    }
+}
 
