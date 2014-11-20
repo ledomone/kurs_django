@@ -6,4 +6,4 @@ class Message(models.Model):
     message = models.TextField()
 
     def __str__(self):
-        return self.message
+        return "message from {name}".format(name=self.name)
