@@ -5,6 +5,9 @@ class Author(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=50)
 
+    class Meta:
+        ordering = ["last_name"]
+
     def __str__(self):
         return "{first_name} {last_name}".format(first_name=self.first_name,
                                                  last_name=self.last_name)
@@ -12,6 +15,7 @@ class Author(models.Model):
 
 class Publisher(models.Model):
     name = models.CharField(max_length=70)
+    url = models.CharField(max_length=250, default="http://www.")
 
     def __str__(self):
         return self.name
@@ -22,6 +26,9 @@ class Book(models.Model):
     author = models.ForeignKey(Author)
     isbn = models.CharField(max_length=17)
     publisher = models.ForeignKey(Publisher)
+
+    class Meta:
+        ordering = ["title"]
 
     def __str__(self):
         return self.title

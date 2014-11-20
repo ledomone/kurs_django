@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 
+
 {% block 'content' %}
 Lista znanych autorów:
 
 <ul>
-{% for author in object_list %}
-        <li><a href="{% url 'shelf:author-detail' author.id %}">{{ author.first_name }} {{ author.last_name }}</a>
-{% endfor %}
+    {% for author in author_list %}
+    <li><a href="{% url 'shelf:author-detail' author.id %}">{{ author.first_name }} {{ author.last_name }}</a>
+        {% endfor %}
 </ul>
 {% endblock %}
+
+
+{% block 'footer' %}
+<div class="footer">
+    Stopka redakcyjna dla autorów...
+</div>
+{% endblock %}
+
