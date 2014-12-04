@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 class Author(models.Model):
     # first_name = models.CharField(verbose_name=_("first name"), max_length=20)    # gTranslator,
     # first_name = models.CharField(_("first name"), max_length=20)    # gTranslator,
-    first_name = models.CharField(verbose_name="Imię", max_length=20)
+    first_name = models.CharField(_("first name"), max_length=20)
     last_name = models.CharField(_("last name"), max_length=50)
 
     class Meta:
@@ -32,7 +32,7 @@ class Publisher(models.Model):
 
 
 class BookCategory(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(_("book category"), max_length=100)
 
     def __str__(self):
         return self.name
@@ -49,6 +49,8 @@ class Book(models.Model):
 
     class Meta:
         ordering = ["title"]
+        verbose_name = _("book")
+        verbose_name_plural = _("books")
 
     def __str__(self):
         return self.title

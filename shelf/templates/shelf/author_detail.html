@@ -6,8 +6,16 @@
 
 Profil autora: {{ object.last_name }}, {{ object.first_name }}
 
-{% endblock %}
 
+
+<h2>Książki:</h2>
+<ul>
+    {% for book in object.book_set.all %}
+    <li><a href="{% url 'shelf:book-detail' book.id %}"> {{ book.title }} </a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
 
 {% block 'footer' %}
 <div class="footer">

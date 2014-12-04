@@ -18,6 +18,10 @@ class PublisherAdmin(admin.ModelAdmin):
     ordering = ['name']
     list_display = ['name', 'url']
 
+
+class BookAdmin(admin.ModelAdmin):
+    list_display = ['title', ]
+
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Publisher, PublisherAdmin)
