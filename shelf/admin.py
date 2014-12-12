@@ -22,6 +22,7 @@ class PublisherAdmin(admin.ModelAdmin):
 class BookAdmin(admin.ModelAdmin):
     list_display = ['title', ]
 
+
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Publisher, PublisherAdmin)

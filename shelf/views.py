@@ -1,8 +1,24 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic import ListView, DetailView, FormView, TemplateView
+
 
 from .models import Author, Book
 from .forms import AuthorForm
+
+
+class MainPageView(TemplateView):
+    template_name = 'index.html'
+
+#
+# class MainPageView(TemplateView):
+#     def get(self, request, *args, **kwargs):
+#         return HttpResponse('OK - klasa')
+
+index_view = MainPageView.as_view()
+
+# def index_view():
+#     return HttpResponse()
 
 
 class AuthorListView(ListView):

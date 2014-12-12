@@ -1,10 +1,14 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% load shelf_tags %}
 
 {% block 'content' %}
 
 <div><a href="{% url 'shelf:book-list' %}">Powrót do listy książek</a></div>
 
-Opis książki: {{ book.title }}
+Tytuł książki: {{ book.title }}
+
+<h2>Wydania:</h2>
+
+{% show_editions object %}
 
 {% endblock %}
 
@@ -12,5 +16,7 @@ Opis książki: {{ book.title }}
 {% block 'footer' %}
 <div class="footer">
     Stopka książeczki (a właściwie to <i>"niewiadomoco"</i>).
+    <br/>
+    Zadanie - dodać filtr - zapis słowny liczby Template layer -> custom template filters
 </div>
 {% endblock %}
