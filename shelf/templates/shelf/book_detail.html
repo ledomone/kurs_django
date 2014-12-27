@@ -1,6 +1,6 @@
 {% extends "base.html" %}{% load shelf_tags %}
 
-{% block 'content' %}
+{% block content %}
 
 <div><a href="{% url 'shelf:book-list' %}">Powrót do listy książek</a></div>
 
@@ -13,7 +13,7 @@ Tytuł książki: {{ book.title }}
 {% endblock %}
 
 
-{% block 'footer' %}
+{% block footer %}
 <div class="footer">
     Stopka książeczki (a właściwie to <i>"niewiadomoco"</i>).
     <br/>

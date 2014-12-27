@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block 'content' %}
+{% block content %}
 
 <div><a href="{% url 'shelf:author-list' %}">Powrót do listy autorów</a></div>
 
@@ -18,7 +18,7 @@ Profil autora: {{ object.last_name }}, {{ object.first_name }}
 
 {% endblock %}
 
-{% block 'footer' %}
+{% block footer %}
 <div class="footer">
     Stopka autora (a właściwie jego szczegółów).
 </div>
