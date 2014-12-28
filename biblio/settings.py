@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'shelf',
     'contact',
     'rental',
+    'users',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -79,6 +80,8 @@ USE_I18N = True  # internationalization
 USE_L10N = True  # localization
 
 USE_TZ = True
+
+AUTH_USER_MODEL = 'users.BiblioUser'
 
 
 # Static files (CSS, JavaScript, Images)
