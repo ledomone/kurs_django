@@ -13,33 +13,48 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Author',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=20)),
-                ('last_name', models.CharField(max_length=50)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('first_name', models.CharField(verbose_name='first name', max_length=20)),
+                ('last_name', models.CharField(verbose_name='last name', max_length=50)),
             ],
             options={
-                'ordering': ['last_name'],
+                'verbose_name': 'Author',
+                'verbose_name_plural': 'Authors',
+                'ordering': ('last_name', 'first_name'),
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='Book',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('title', models.CharField(max_length=100)),
                 ('author', models.ManyToManyField(to='shelf.Author')),
             ],
             options={
+                'verbose_name': 'book',
+                'verbose_name_plural': 'books',
                 'ordering': ['title'],
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='BookCategory',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('name', models.CharField(verbose_name='book category', max_length=100)),
+            ],
+            options={
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='BookEdition',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('isbn', models.CharField(max_length=17)),
-                ('book', models.ForeignKey(to='shelf.Book')),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('isbn', models.CharField(blank=True, max_length=17)),
+                ('date', models.DateField()),
+                ('book', models.ForeignKey(related_name='editions', to='shelf.Book')),
             ],
             options={
             },
@@ -48,19 +63,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='BookItem',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('cover', models.CharField(choices=[('soft', 'Soft'), ('hard', 'Hard')], max_length=4)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
+                ('catalogue_number', models.CharField(max_length=30)),
+                ('cover', models.CharField(max_length=4, choices=[('soft', 'Soft'), ('hard', 'Hard')])),
                 ('edition', models.ForeignKey(to='shelf.BookEdition')),
-            ],
-            options={
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
-            name='Category',
-            fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
             ],
             options={
             },
@@ -69,9 +75,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Publisher',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('name', models.CharField(max_length=70)),
-                ('url', models.CharField(default='http://www.', max_length=250)),
+                ('url', models.CharField(max_length=250, default='http://www.')),
             ],
             options={
             },
@@ -86,7 +92,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='book',
             name='category',
-            field=models.ManyToManyField(to='shelf.Category'),
+            field=models.ManyToManyField(to='shelf.BookCategory'),
             preserve_default=True,
         ),
     ]

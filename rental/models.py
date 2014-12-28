@@ -15,5 +15,5 @@ class Rental(models.Model):
     def __str__(self):
         return "{who.username} rent: {what.edition.book.title} [{what.pk}]" \
                " at {when}".format(who=self.who,
-                                                                what=self.what,
-                                                                when=self.when)
+                                   what=self.what,
+                                   when=self.when)
