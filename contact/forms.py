@@ -13,9 +13,9 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     message = forms.CharField(widget=forms.Textarea())
 
-    def clean_name(self):
-        data = self.cleaned_data['name']
-        if "D" not in data:
-            raise forms.ValidationError("Musisz podać imię z literą D")
-        return  data
+    # def clean_name(self):
+    #     data = self.cleaned_data['name']
+    #     if "D" not in data:
+    #         raise forms.ValidationError("Musisz podać imię z literą D")
+    #     return  data
 

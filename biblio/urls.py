@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from contact.views import MessageAddView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
@@ -9,4 +11,5 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('allauth.urls')),
 
     url(r'^$', 'shelf.views.index_view', name='main-page'),
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
