@@ -17,3 +17,8 @@ class Rental(models.Model):
                " at {when}".format(who=self.who,
                                    what=self.what,
                                    when=self.when)
+
+    class Meta:
+        permissions = (
+            ('can_rent', 'Can rent a book'),
+        )
