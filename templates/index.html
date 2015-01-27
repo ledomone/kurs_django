@@ -4,6 +4,11 @@
 
 Strona główna :-)
 
+<ul>
+    <li><a href="{% url 'shelf:book-list' %}"> Lista jawna (książki)</a></li>
+    <li><a href="{% url 'shelf:author-list' %}">Lista tajna (autorzy)</a></li>
+</ul>
+
 {% endblock %}
 
 {% block title %}

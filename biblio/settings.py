@@ -55,13 +55,10 @@ class Production(Configuration):
     # Application definition
 
     INSTALLED_APPS = (
-        'django.contrib.admin',
-        'django.contrib.auth',
-        'django.contrib.contenttypes',
-        'django.contrib.sessions',
-        'django.contrib.messages',
-        'django.contrib.staticfiles',
-        'django.contrib.sites',
+        'shelf',
+        'contact',
+        'rental',
+        'users',
         #########################################
 
         'allauth',
@@ -71,10 +68,14 @@ class Production(Configuration):
         'bootstrap3',
 
         #########################################
-        'shelf',
-        'contact',
-        'rental',
-        'users',
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'django.contrib.sites',
+
     )
 
     MIDDLEWARE_CLASSES = (

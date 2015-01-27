@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, FormView, TemplateView
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 
 from .models import Author, Book
@@ -23,6 +25,10 @@ index_view = MainPageView.as_view()
 
 class AuthorListView(ListView):
     model = Author
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(AuthorListView, self).dispatch(*args, **kwargs)
 
 
 class AuthorDetailView(DetailView):
