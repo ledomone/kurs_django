@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^shelf/', include('shelf.urls', namespace='shelf')),
     url(r'^contact/$', MessageAddView.as_view()),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^rental/', include('rental.urls', namespace='rental')),
 
     url(r'^$', 'shelf.views.index_view', name='main-page'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

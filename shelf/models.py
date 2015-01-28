@@ -88,9 +88,9 @@ class BookItem(models.Model):
     """
     edition = models.ForeignKey(BookEdition)
     catalogue_number = models.CharField(max_length=30)
-    cover = models.CharField(max_length=4, choices=COVER_TYPES)  # rodzaj okładki
+    cover_type = models.CharField(max_length=4, choices=COVER_TYPES)  # rodzaj okładki
 
     def __str__(self):
         return "ID_{id}: {edition}, {cover}".format(id=self._get_pk_val(),
                                                     edition=self.edition,
-                                                    cover=self.get_cover_display())
+                                                    cover=self.get_cover_type_display())

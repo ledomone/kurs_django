@@ -4,11 +4,11 @@
 
 <div><a href="{% url 'shelf:book-list' %}">Powrót do listy książek</a></div>
 
-Tytuł książki: {{ book.title }}
+<h2>Tytuł książki: {{ book.title }}</h2>
 
-<h2>Wydania:</h2>
+Egzemplarze:
 
-{% show_editions object %}
+{% show_items object %}
 
 {% endblock %}
 
