@@ -66,6 +66,7 @@ class Production(Configuration):
         'allauth.socialaccount',
         # 'allauth.socialaccount.providers.facebook',
         'bootstrap3',
+        'crispy_forms',
 
         #########################################
         'django.contrib.admin',
@@ -169,6 +170,8 @@ class Production(Configuration):
     LOGIN_URL = "main-page"
 
     LOGIN_REDIRECT_URL = "main-page"
+
+    CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 
 class Dev(Production):

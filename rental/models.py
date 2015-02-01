@@ -1,6 +1,7 @@
 from django.db import models
 from shelf.models import BookItem
 from django.conf import settings
+from django.db.models import Q
 
 # from datetime import datetime.now as now  # nie wspiera stref czasowych
 # from django.utils.timezone import now   # wspiera strefy czasowe OotB (Out of the Box)
@@ -8,7 +9,9 @@ from django.conf import settings
 
 class Rental(models.Model):
     who = models.ForeignKey(settings.AUTH_USER_MODEL)
-    what = models.ForeignKey(BookItem)
+    what = models.ForeignKey(BookItem,
+                             limit_choices_to=Q(rental__returned__isnull=False) | Q(rental__isnull=True)
+    )
     when = models.DateTimeField(auto_now_add=True)  # nie można zmienić ręcznie
     returned = models.DateTimeField(null=True, blank=True)  # domyślnie pojawia się w formularzu
 
