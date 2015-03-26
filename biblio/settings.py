@@ -67,7 +67,6 @@ class Production(Configuration):
         # 'allauth.socialaccount.providers.facebook',
         'bootstrap3',
         'crispy_forms',
-        'rest_framework',
 
         #########################################
         'django.contrib.admin',
