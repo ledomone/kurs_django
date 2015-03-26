@@ -67,6 +67,7 @@ class Production(Configuration):
         # 'allauth.socialaccount.providers.facebook',
         'bootstrap3',
         'crispy_forms',
+        'rest_framework',
 
         #########################################
         'django.contrib.admin',
@@ -167,11 +168,19 @@ class Production(Configuration):
     SITE_ID = 1  # because of 'django.contrib.sites'
 
 
-    LOGIN_URL = "main-page"
+    LOGIN_URL = '/accounts/login/'
 
     LOGIN_REDIRECT_URL = "main-page"
 
     CRISPY_TEMPLATE_PACK = "bootstrap3"
+
+    REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissions'
+    ]
+}
 
 
 class Dev(Production):
